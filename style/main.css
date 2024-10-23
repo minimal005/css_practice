@@ -1,0 +1,136 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  padding: 0px;
+  margin: 0px;
+  border: none;
+  box-sizing: border-box;
+}
+
+ol {
+  margin: 0;
+}
+
+a,
+a:link,
+a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+/* Common */
+section,
+main {
+  display: block;
+}
+
+h2,
+p {
+  font-size: inherit;
+  font-weight: inherit;
+  margin: 0;
+}
+
+img {
+  vertical-align: top;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.page {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 400;
+  line-height: 1.15;
+  font-size: 18px;
+  color: #000000;
+}
+
+.people__list {
+  display: grid;
+  grid-template-columns: repeat(2, 220px);
+  gap: 10px;
+  counter-reset: myCounter;
+  justify-content: center;
+  align-items: center;
+}
+@media (min-width: 1000px) {
+  .people__list {
+    grid-template-columns: repeat(4, 220px);
+  }
+}
+.people__item {
+  list-style-type: none;
+  position: relative;
+  width: 220px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.people__item::before {
+  counter-increment: myCounter;
+  content: counter(myCounter);
+  display: inline-flex;
+  background-color: red;
+  position: absolute;
+  right: 20px;
+  top: 110px;
+  transform: translateY(-50%);
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: #fff;
+  align-items: center;
+  justify-content: center;
+  color: #8b0000;
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.person {
+  display: flex;
+  flex-direction: column;
+  row-gap: 8px;
+  padding: 10px;
+  justify-content: center;
+  align-items: center;
+  width: 220px;
+  transition: all 0.3s ease 0s;
+}
+.person:hover {
+  background-color: #eeeeee;
+  border-radius: 10px;
+  transform: scale(1.1);
+}
+.person:hover .person__details {
+  opacity: 1;
+}
+.person__image {
+  max-width: 200px;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.person__image img {
+  width: 100%;
+  object-fit: cover;
+}
+.person__name {
+  font-size: 20px;
+  font-weight: 700;
+  color: #2f4f4f;
+}
+.person__details {
+  opacity: 0;
+}
+
+/*# sourceMappingURL=main.css.map */

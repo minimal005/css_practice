@@ -1,0 +1,46 @@
+.people {
+  &__person {
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(2, $width-card + 20px);
+    gap: $gap;
+    counter-reset: myCounter;
+    justify-content: center;
+    align-items: center;
+
+    @media (min-width: 1000px) {
+      grid-template-columns: repeat(4, $width-card + 20px);
+    }
+  }
+
+  &__item {
+    list-style-type: none;
+    position: relative;
+    width: calc($width-card + 20px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &::before {
+      counter-increment: myCounter;
+      content: counter(myCounter);
+      display: inline-flex;
+      background-color: red;
+      position: absolute;
+      right: 20px;
+      top: 100px + 10px;
+      transform: translateY(-50%);
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background-color: #fff;
+      align-items: center;
+      justify-content: center;
+      color: $color-number;
+      font-weight: 700;
+      font-size: 16px;
+    }
+  }
+}
